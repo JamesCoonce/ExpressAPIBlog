@@ -34,7 +34,7 @@ PostController.getPost = async (req, res) => {
 
 PostController.addPost = async (req, res) => {
     try {
-        if (!req.body.post.name || !req.body.post.title || !req.body.post.content) {
+        if (!req.body.post.title || !req.body.post.content) {
             res.status(403).end();
         }
 
@@ -42,7 +42,6 @@ PostController.addPost = async (req, res) => {
 
         // Let's sanitize inputs
         newPost.title = sanitizeHtml(newPost.title);
-        newPost.name = sanitizeHtml(newPost.name);
         newPost.content = sanitizeHtml(newPost.content);
 
         newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
@@ -62,7 +61,7 @@ PostController.addPost = async (req, res) => {
 
 PostController.updatePost = async (req, res) => {
     try {
-        if (!req.body.post.name || !req.body.post.title || !req.body.post.content) {
+        if (!req.body.post.title || !req.body.post.content) {
             res.status(403).end();
         }
         Post.findOne({ cuid: req.params.cuid }).exec((err, post) => {
@@ -72,9 +71,8 @@ PostController.updatePost = async (req, res) => {
             } else {
                 // Update each attribute with any possible attribute that may have been submitted in the body of the request
                 // If that attribute isn't in the request body, default back to whatever it was before.
-                post.name = req.body.post.name || post.name;
                 post.title = req.body.post.title || post.title;
-                post.content = req.body.post.content || post.description;
+                post.content = req.body.post.content || post.content;
                 console.log('Post about to be saved');
                 // Save the updated document back to the database
                 post.save((err, saved) => {

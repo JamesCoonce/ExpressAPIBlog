@@ -4,7 +4,6 @@ const router = new Router();
 
 // Get all Posts
 router.get('/posts', (req, res) => {
-    console.log('Get All Posts');
     PostController.getAll(req, res);
 });
 
@@ -15,12 +14,10 @@ router.get('/posts/:cuid', (req, res) =>{
 
 // Add a new Post
 router.post('/posts', (req, res) => {
-    console.log('Create post');
     PostController.addPost(req, res);
 });
 
 router.put('/posts/:cuid', (req, res) => {
-    console.log('Update post');
     PostController.updatePost(req, res);
 });
 
