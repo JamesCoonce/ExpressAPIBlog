@@ -1,4 +1,4 @@
 {
-    "presets": ["env", "next/babel"],
+    "presets": ["env", "stage-0"],
     "plugins": []
 }

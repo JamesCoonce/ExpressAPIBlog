@@ -13,7 +13,6 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         transitionName: string;
         choiceTransitionName: string;
         showSearch: boolean;
-        dropdownClassName: string;
     };
     private rcTreeSelect;
     constructor(props: TreeSelectProps);

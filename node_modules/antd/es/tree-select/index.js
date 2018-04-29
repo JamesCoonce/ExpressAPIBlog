@@ -38,13 +38,14 @@ var TreeSelect = function (_React$Component) {
                 size = _a.size,
                 notFoundContent = _a.notFoundContent,
                 dropdownStyle = _a.dropdownStyle,
-                restProps = __rest(_a, ["prefixCls", "className", "size", "notFoundContent", "dropdownStyle"]);
+                dropdownClassName = _a.dropdownClassName,
+                restProps = __rest(_a, ["prefixCls", "className", "size", "notFoundContent", "dropdownStyle", "dropdownClassName"]);
             var cls = classNames((_classNames = {}, _defineProperty(_classNames, prefixCls + '-lg', size === 'large'), _defineProperty(_classNames, prefixCls + '-sm', size === 'small'), _classNames), className);
             var checkable = restProps.treeCheckable;
             if (checkable) {
                 checkable = React.createElement('span', { className: prefixCls + '-tree-checkbox-inner' });
             }
-            return React.createElement(RcTreeSelect, _extends({}, restProps, { prefixCls: prefixCls, className: cls, dropdownStyle: _extends({ maxHeight: '100vh', overflow: 'auto' }, dropdownStyle), treeCheckable: checkable, notFoundContent: notFoundContent || locale.notFoundContent, ref: _this.saveTreeSelect }));
+            return React.createElement(RcTreeSelect, _extends({}, restProps, { dropdownClassName: classNames(dropdownClassName, prefixCls + '-tree-dropdown'), prefixCls: prefixCls, className: cls, dropdownStyle: _extends({ maxHeight: '100vh', overflow: 'auto' }, dropdownStyle), treeCheckable: checkable, notFoundContent: notFoundContent || locale.notFoundContent, ref: _this.saveTreeSelect }));
         };
         warning(props.multiple !== false || !props.treeCheckable, '`multiple` will alway be `true` when `treeCheckable` is true');
         return _this;
@@ -84,6 +85,5 @@ TreeSelect.defaultProps = {
     prefixCls: 'ant-select',
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
-    showSearch: false,
-    dropdownClassName: 'ant-select-tree-dropdown'
+    showSearch: false
 };
