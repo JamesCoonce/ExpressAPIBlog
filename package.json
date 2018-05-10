@@ -3,20 +3,29 @@
   "version": "1.0.0",
   "description": "web api for express",
   "scripts": {
-    "start": "nodemon server.js --watch server --exec babel-node",
-    "build": "next build",
+    "start": "nodemon lib/index.js --watch server --exec babel-node --presets @babel/preset-env,@babel/preset-stage-0,next/babel",
+    "build": "babel lib -d dist --presets @babel/preset-env,@babel/preset-stage-0,next/babel",
+    "serve": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      ["@babel/preset-stage-0", { "decoratorsLegacy": true }],
+      "next/babel"]
+  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "nodemon": "^1.17.1"
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/node": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-stage-0": "^7.0.0-beta.46",
+    "nodemon": "^1.17.4"
   },
   "dependencies": {
-    "antd": "^3.2.3",
+    "antd": "^3.5.1",
     "body-parser": "^1.18.2",
     "classnames": "^2.2.5",
     "cookie-parser": "^1.4.3",
@@ -26,12 +35,13 @@
     "jsonwebtoken": "^8.1.0",
     "limax": "^1.5.0",
     "mongoose": "^4.13.0",
+    "next": "^6.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.4.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "sanitize-html": "^1.15.0"
   }
 }

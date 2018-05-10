@@ -9,13 +9,11 @@ export declare type BreakpointMap = {
     xl?: string;
     xxl?: string;
 };
-export interface RowProps {
-    className?: string;
+export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     gutter?: number | BreakpointMap;
     type?: 'flex';
     align?: 'top' | 'middle' | 'bottom';
     justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
-    style?: React.CSSProperties;
     prefixCls?: string;
 }
 export interface RowState {

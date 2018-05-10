@@ -46,7 +46,7 @@ var Mention = function (_React$Component) {
             }
         };
         _this.focus = function () {
-            _this.mentionEle._editor.focus();
+            _this.mentionEle._editor.focusEditor();
         };
         _this.mentionRef = function (ele) {
             _this.mentionEle = ele;

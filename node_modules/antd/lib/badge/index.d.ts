@@ -16,6 +16,7 @@ export interface BadgeProps {
     status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
     text?: string;
     offset?: [number | string, number | string];
+    title?: string;
 }
 export default class Badge extends React.Component<BadgeProps, any> {
     static defaultProps: {
